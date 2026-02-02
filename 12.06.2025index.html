@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Carta</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #efeae4;
+      font-family: "Georgia", serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .senha, .carta {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      max-width: 700px;
+      width: 100%;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    .senha {
+      text-align: center;
+    }
+
+    .carta {
+      display: none;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: normal;
+      margin-bottom: 25px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 120px;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background: #6b4f4f;
+      color: white;
+    }
+
+    .erro {
+      color: #b00020;
+      margin-top: 10px;
+      display: none;
+      text-align: center;
+    }
+
+    .dica {
+      color: #555;
+      margin-top: 8px;
+      font-size: 14px;
+      display: none;
+      text-align: center;
+    }
+
+    /* Seção de memórias */
+    .memorias {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .memorias p {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .fotos {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .fotos img {
+      width: 280px;
+      max-width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      filter: grayscale(100%);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Tela de senha -->
+  <div class="senha" id="senhaBox">
+    <h1>Digite a senha</h1>
+    <input type="password" id="senha" maxlength="4" />
+    <br>
+    <button onclick="verificarSenha()">Entrar</button>
+
+    <div class="erro" id="erro">Senha incorreta</div>
+    <div class="dica" id="dica">Dica: o primeiro dia que nós se encontrou</div>
+  </div>
+
+  <!-- Carta -->
+  <div class="carta" id="carta">
+    <h1>Carta</h1>
+
+    <p>
+      Eu poderia passar horas pedindo desculpas pelo que fiz, mas entendi que o arrependimento só é real quando vira mudança.
+      O tempo me fez encarar meus reflexos e ajustar o que estava quebrado.
+      Hoje, não sou mais escravo dos mesmos erros.
+      Não quero te convencer com palavras, quero te mostrar com atitudes que o homem que te magoou ficou no passado.
+      Será que existe espaço para redescobrirmos quem somos agora, sem o peso do que fomos?
+    </p>
+
+    <div class="memorias">
+      <p>Algumas memórias ainda moram aqui.</p>
+
+      <div class="fotos">
+        <img src="https://drive.google.com/uc?export=view&id=1uyJ-YFmj_N5871dDc0ZRCEd3hushS27A" alt="Memória 1">
+        <img src="https://drive.google.com/uc?export=view&id=1g_9OfMXsbSqIKe2Fa-fTte-w3A1J8Qkq" alt="Memória 2">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function verificarSenha() {
+      const senha = document.getElementById("senha").value;
+
+      if (senha === "1206") {
+        document.getElementById("senhaBox").style.display = "none";
+        document.getElementById("carta").style.display = "block";
+      } else {
+        document.getElementById("erro").style.display = "block";
+        document.getElementById("dica").style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>
